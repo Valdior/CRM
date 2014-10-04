@@ -25,6 +25,7 @@
     "require": {
         "doctrine/doctrine-bundle": "~1.2",
         "doctrine/orm": "~2.2,>=2.2.3",
+        "friendsofsymfony/user-bundle": "2.0.*@dev",
         "incenteev/composer-parameter-handler": "~2.0",
         "php": ">=5.3.3",
         "sensio/distribution-bundle": "~3.0",
