@@ -1,0 +1,4 @@
+crm_core:
+    resource: "@CRMCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+

@@ -1,0 +1,3 @@
+crm_core_home:
+    path:     /
+    defaults: { _controller: CRMCoreBundle:Core:index }

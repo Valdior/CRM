@@ -1,0 +1,4 @@
+services:
+#    crm_core.example:
+#        class: CRM\CoreBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
