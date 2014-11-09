@@ -1,6 +1,8 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: parametersCRM.yml }
+    
 
 framework:
     #esi:             ~
@@ -28,6 +30,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        title_crm: %crm_title%
 
 # Assetic Configuration
 assetic:
