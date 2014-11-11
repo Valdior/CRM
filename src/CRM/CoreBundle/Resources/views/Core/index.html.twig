@@ -3,4 +3,5 @@
 {% block title %}Accueil {{ parent() }}{% endblock %}
 
 {% block body %}
+    <p>Bonjour {{ app.user.username }} - {{ app.user.email }}</p>
 {% endblock %}

@@ -8,7 +8,12 @@ class CoreController extends Controller
 {
     public function indexAction()
     {
-        return $this->redirect($this->generateUrl('fos_user_security_login'));
+        if ($this->getUser() == null) 
+        {
+            return $this->redirect($this->generateUrl('fos_user_security_login'));
+        }
+
+        return $this->render('CRMCoreBundle:Core:index.html.twig');
     }
 }
 
