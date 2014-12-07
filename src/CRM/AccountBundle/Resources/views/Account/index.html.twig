@@ -1,3 +1,65 @@
-{% extends "CRMCoreBundle::layout.html.twig" %}
+{% extends "CRMAccountBundle::layout.html.twig" %}
 
-{% block title %}Client {{ parent() }}{% endblock %}
+{% block title %}Accueil - {{ parent() }}{% endblock %}
+
+{% block accountbody %}    
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Liste des clients</h3>
+        </div>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>Ville</th>
+                    <th>Email</th>
+                    <th>#</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#</td>
+                    <td>Nom</td>
+                    <td>Ville</td>
+                    <td>Email</td>
+                    <td>#</td>
+                    <td>#</td>
+                </tr>
+                <tr>
+                    <td>#</td>
+                    <td>Nom</td>
+                    <td>Ville</td>
+                    <td>Email</td>
+                    <td>#</td>
+                    <td>#</td>
+                </tr>
+                <tr>
+                    <td>#</td>
+                    <td>Nom</td>
+                    <td>Ville</td>
+                    <td>Email</td>
+                    <td>#</td>
+                    <td>#</td>
+                </tr>
+                <tr>
+                    <td>#</td>
+                    <td>Nom</td>
+                    <td>Ville</td>
+                    <td>Email</td>
+                    <td>#</td>
+                    <td>#</td>
+                </tr>
+                <tr>
+                    <td>#</td>
+                    <td>Nom</td>
+                    <td>Ville</td>
+                    <td>Email</td>
+                    <td>#</td>
+                    <td>#</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

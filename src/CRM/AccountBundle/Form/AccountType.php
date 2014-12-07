@@ -15,13 +15,14 @@ class AccountType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('adresse')
-            ->add('contact')
-            ->add('tVA')
-            ->add('siteWeb')
-            ->add('phone')
-            ->add('fAX')
+            ->add('name',       'text')
+            ->add('adresse',    'text')
+            ->add('contact',    'text')
+            ->add('tVA',        'text')
+            ->add('siteWeb',    'url')
+            ->add('phone',      'text')
+            ->add('fAX',        'text')
+            ->add('save',       'submit')
         ;
     }
     
