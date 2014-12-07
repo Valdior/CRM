@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             
             // Bundle externe
             new FOS\UserBundle\FOSUserBundle(),
+            new CRM\AccountBundle\CRMAccountBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

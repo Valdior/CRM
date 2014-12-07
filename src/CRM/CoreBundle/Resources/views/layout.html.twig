@@ -14,21 +14,44 @@
     </head>
     <body>
         <nav class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
-            <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="">
+                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-                        <li><a href="#">Clients</a></li>
+                        <li class="active"><a href="{{ path('crm_core_home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#demo">Sales<span class="caret"></span></a> 
+                        </li>   
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ app.user.username }} <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> {{ app.user.username }} <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+                                <li><a href="{{ path('fos_user_profile_show') }}">Profil</a></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>                                
                             </ul>
-                        </li>
+                        </li>    
                     </ul>
                 </div>
+            </div>
+        </nav>
+        
+        <nav class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation" id="submenu">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav collapse" id="demo">
+                  <li><a href="{{ path('crm_account_homepage') }}" id="">Clients</a></li>
+                  <li><a href="#" id="">One sub 2</a></li>
+                  <li><a href="#" id="">One sub 3</a></li>
+                  <li><a href="#" id="">One sub 4</a></li>
+                </ul>
+                <ul class="nav navbar-nav collapse" id="two">
+                  <li><a href="#" id="">Two sub 1</a></li>
+                  <li><a href="#" id="">Two sub 2</a></li>
+                  <li><a href="#" id="">Two sub 3</a></li>
+                </ul>
+                 <ul class="nav navbar-nav collapse" id="three">
+                  <li><a href="#" id="">Three sub 1</a></li>
+                  <li><a href="#" id="">Three sub 2</a></li>
+                </ul>
             </div>
         </nav>
                     
@@ -39,9 +62,11 @@
                 </div>
             </div>
         </div>
+                
         {% block javascripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="{{ asset('dist/js/bootstrap.js') }}"></script>
+        <script src="{{ asset('dist/js/bootstrap-crm.js') }}"></script>
         <script src="{{ asset('dist/js/npm.js') }}"></script>        
         {% endblock %}
     </body>

@@ -1,0 +1,3 @@
+crm_account_homepage:
+    path:     /account
+    defaults: { _controller: CRMAccountBundle:Account:index }

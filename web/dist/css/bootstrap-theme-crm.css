@@ -1,0 +1,23 @@
+/*
+.dropdown-menu > li{
+  display: inline-block;
+    float:left;
+ }
+.open> ul {
+    display: inline-flex !important;
+}*/
+
+.navbar {
+	margin-bottom:-1px;
+    border-radius:0;
+}
+
+#submenu {
+    background-color: #e7e7e7;
+    margin-bottom:20px;
+    z-index: inherit;
+}
+
+.collapsing {
+	display:none;
+}

@@ -1,3 +1,7 @@
+crm_account:
+    resource: "@CRMAccountBundle/Resources/config/routing.yml"
+    prefix:   /
+
 crm_core:
     resource: "@CRMCoreBundle/Resources/config/routing.yml"
     prefix:   /
