@@ -12,7 +12,13 @@ class AccountController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('CRMAccountBundle:Account:index.html.twig');
+        $repository = $this->getDoctrine()
+                            ->getManager()
+                            ->getRepository('CRMAccountBundle:Account');
+
+        $accounts = $repository->findAll();
+        
+        return $this->render('CRMAccountBundle:Account:index.html.twig', array('accounts' => $accounts));
     }
     
     public function addAction(Request $request)

@@ -13,52 +13,21 @@
                     <th>#</th>
                     <th>Nom</th>
                     <th>Ville</th>
-                    <th>Email</th>
-                    <th>#</th>
+                    <th>Téléphone</th>
+                    <th>FAX</th>
                     <th>#</th>
                 </tr>
             </thead>
             <tbody>
+                {% for account in accounts %}
                 <tr>
-                    <td>#</td>
-                    <td>Nom</td>
-                    <td>Ville</td>
-                    <td>Email</td>
-                    <td>#</td>
-                    <td>#</td>
+                    <td>{{ account.id }}</td>
+                    <td>{{ account.name }}</td>
+                    <td>{{ account.adresse }}</td>
+                    <td>{{ account.phone }}</td>
+                    <td>{{ account.fAX }}</td>
                 </tr>
-                <tr>
-                    <td>#</td>
-                    <td>Nom</td>
-                    <td>Ville</td>
-                    <td>Email</td>
-                    <td>#</td>
-                    <td>#</td>
-                </tr>
-                <tr>
-                    <td>#</td>
-                    <td>Nom</td>
-                    <td>Ville</td>
-                    <td>Email</td>
-                    <td>#</td>
-                    <td>#</td>
-                </tr>
-                <tr>
-                    <td>#</td>
-                    <td>Nom</td>
-                    <td>Ville</td>
-                    <td>Email</td>
-                    <td>#</td>
-                    <td>#</td>
-                </tr>
-                <tr>
-                    <td>#</td>
-                    <td>Nom</td>
-                    <td>Ville</td>
-                    <td>Email</td>
-                    <td>#</td>
-                    <td>#</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
