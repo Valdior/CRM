@@ -3,6 +3,7 @@
 namespace CRM\AccountBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Account
@@ -103,6 +104,12 @@ class Account
      * @ORM\Column(name="_RowVersion", type="integer")
      */
     private $rowVersion;
+    
+    /**
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(length=128, unique=true)
+     */
+    private $slug;
 
 
     /**
@@ -421,5 +428,28 @@ class Account
     public function updateRowVersion()
     {
         $this->setRowVersion($this->getRowVersion() + 1);
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Account
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

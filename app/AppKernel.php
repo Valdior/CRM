@@ -19,7 +19,7 @@ class AppKernel extends Kernel
             
             // Bundle externe
             new FOS\UserBundle\FOSUserBundle(),
-            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensonsBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             
             // Bundle propre
             new CRM\CoreBundle\CRMCoreBundle(),
