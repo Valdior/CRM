@@ -1,7 +1,8 @@
 crm_account_homepage:
-    path:     /account
+    path:     /
     defaults: { _controller: CRMAccountBundle:Account:index }
     
 crm_account_add:
-    path:     /account/add
-    defaults: { _controller: CRMAccountBundle:Account:add }    
+    path:     /add
+    defaults: { _controller: CRMAccountBundle:Account:add }  
+

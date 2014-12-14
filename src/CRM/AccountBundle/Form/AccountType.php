@@ -16,12 +16,12 @@ class AccountType extends AbstractType
     {
         $builder
             ->add('name',       'text')
-            ->add('adresse',    'text')
-            ->add('contact',    'text')
-            ->add('tVA',        'text')
-            ->add('siteWeb',    'url')
-            ->add('phone',      'text')
-            ->add('fAX',        'text')
+            ->add('adresse',    'text', array('required' => false))
+            ->add('contact',    'text', array('required' => false))
+            ->add('tVA',        'text', array('required' => false))
+            ->add('siteWeb',    'url', array('required' => false))
+            ->add('phone',      'text', array('required' => false))
+            ->add('fAX',        'text', array('required' => false))
             ->add('save',       'submit')
         ;
     }

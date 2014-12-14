@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="CRM\AccountBundle\Entity\AccountRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Account
 {
@@ -31,44 +32,77 @@ class Account
     /**
      * @var string
      *
-     * @ORM\Column(name="Adresse", type="string", length=255)
+     * @ORM\Column(name="Adresse", type="string", length=255, nullable=true)
      */
     private $adresse;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Contact", type="string", length=255)
+     * @ORM\Column(name="Contact", type="string", length=255, nullable=true)
      */
     private $contact;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="TVA", type="string", length=255)
+     * @ORM\Column(name="TVA", type="string", length=255, nullable=true)
      */
     private $tVA;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="SiteWeb", type="string", length=255)
+     * @ORM\Column(name="SiteWeb", type="string", length=255, nullable=true)
      */
     private $siteWeb;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Phone", type="string", length=255)
+     * @ORM\Column(name="Phone", type="string", length=255, nullable=true)
      */
     private $phone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="FAX", type="string", length=255)
+     * @ORM\Column(name="FAX", type="string", length=255, nullable=true)
      */
     private $fAX;
+    
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="_LastWriteTime", type="datetime", nullable=true)
+     */
+    private $lastWriteTime;
+    
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="_CreationTime", type="datetime")
+     */
+    private $CreationTime;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="CRM\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="_LastWriteUser", nullable=true)
+     */
+    private $lastWriteUser;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="CRM\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="_CreationUser",nullable=false)
+     */
+    private $creationUser;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="_RowVersion", type="integer")
+     */
+    private $rowVersion;
 
 
     /**
@@ -240,5 +274,152 @@ class Account
     public function getFAX()
     {
         return $this->fAX;
+    }
+
+    /**
+     * Set lastWriteTime
+     *
+     * @param \DateTime $lastWriteTime
+     * @return Account
+     */
+    public function setLastWriteTime($lastWriteTime)
+    {
+        $this->lastWriteTime = $lastWriteTime;
+    
+        return $this;
+    }
+
+    /**
+     * Get lastWriteTime
+     *
+     * @return \DateTime 
+     */
+    public function getLastWriteTime()
+    {
+        return $this->lastWriteTime;
+    }
+
+    /**
+     * Set CreationTime
+     *
+     * @param \DateTime $creationTime
+     * @return Account
+     */
+    public function setCreationTime($creationTime)
+    {
+        $this->CreationTime = $creationTime;
+    
+        return $this;
+    }
+
+    /**
+     * Get CreationTime
+     *
+     * @return \DateTime 
+     */
+    public function getCreationTime()
+    {
+        return $this->CreationTime;
+    }
+
+    /**
+     * Set lastWriteUser
+     *
+     * @param \CRM\UserBundle\Entity\User $lastWriteUser
+     * @return Account
+     */
+    public function setLastWriteUser(\CRM\UserBundle\Entity\User $lastWriteUser)
+    {
+        $this->lastWriteUser = $lastWriteUser;
+    
+        return $this;
+    }
+
+    /**
+     * Get lastWriteUser
+     *
+     * @return integer 
+     */
+    public function getLastWriteUser()
+    {
+        return $this->lastWriteUser;
+    }
+
+    /**
+     * Set rowVersion
+     *
+     * @param integer $rowVersion
+     * @return Account
+     */
+    public function setRowVersion($rowVersion)
+    {
+        $this->rowVersion = $rowVersion;
+    
+        return $this;
+    }
+
+    /**
+     * Get rowVersion
+     *
+     * @return integer 
+     */
+    public function getRowVersion()
+    {
+        return $this->rowVersion;
+    }
+
+    /**
+     * Set creationUser
+     *
+     * @param \CRM\UserBundle\Entity\User $creationUser
+     * @return Account
+     */
+    public function setCreationUser(\CRM\UserBundle\Entity\User $creationUser)
+    {
+        $this->creationUser = $creationUser;
+    
+        return $this;
+    }
+
+    /**
+     * Get creationUser
+     *
+     * @return \CRM\UserBundle\Entity\User 
+     */
+    public function getCreationUser()
+    {
+        return $this->creationUser;
+    }
+    
+    /**
+     * @ORM\PreUpdate
+     */
+    public function lastWriteTime()
+    {
+        $this->setLastCreationTime(new \Datetime());
+    }
+    
+    /**
+     * @ORM\PrePersist
+     */
+    public function CreationTime()
+    {
+        $this->setCreationTime(new \Datetime());
+    }
+    
+    /**
+     * @ORM\PrePersist
+     */
+    public function creationRowVersion()
+    {
+        $this->setRowVersion(1);
+    } 
+    
+    /**
+     * @ORM\PreUpdate
+     */
+    public function updateRowVersion()
+    {
+        $this->setRowVersion($this->getRowVersion() + 1);
     }
 }

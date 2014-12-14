@@ -17,13 +17,14 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             
+            // Bundle externe
+            new FOS\UserBundle\FOSUserBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensonsBundle(),
+            
             // Bundle propre
             new CRM\CoreBundle\CRMCoreBundle(),
             new CRM\UserBundle\CRMUserBundle(),
-            
-            // Bundle externe
-            new FOS\UserBundle\FOSUserBundle(),
-            new CRM\AccountBundle\CRMAccountBundle(),
+            new CRM\AccountBundle\CRMAccountBundle(),     
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

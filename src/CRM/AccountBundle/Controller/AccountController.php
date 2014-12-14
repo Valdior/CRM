@@ -25,10 +25,11 @@ class AccountController extends Controller
     {
         $account = new Account();
         
-        $form = $this->get('form.factory')->create(new AccountType(), $account);
+        $form = $this->get('form.factory')->create(new AccountType(), $account);        
         
         if ($form->handleRequest($request)->isValid()) 
         {
+            $account->setCreationUser($this->getUser());
             $em = $this->getDoctrine()->getManager();
             $em->persist($account);
             $em->flush();
