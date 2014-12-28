@@ -12,4 +12,20 @@ use Doctrine\ORM\EntityRepository;
  */
 class AccountRepository extends EntityRepository
 {
+    public function findNewAccounts($beforeDay)
+    {
+        $qb = $this->createQueryBuilder('a')
+                   ->where('a.CreationTime >= :beforeDay')
+                    ->setParameter('beforeDay', date_modify(new \DateTime(),'-'.$beforeDay.' day'));
+                                    
+        return $qb->getQuery()
+                  ->getArrayResult();
+    }
+    
+    public function getAllAccounts()
+    {
+        $qb = $this->createQueryBuilder('a');
+        return $qb->getQuery()
+                  ->getArrayResult();
+    }
 }

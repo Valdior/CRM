@@ -7,20 +7,17 @@ use CRM\AccountBundle\Form\AccountType;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class AccountController extends Controller
 {
+    // Affichage de la page index des clients
     public function indexAction()
     {
-        $repository = $this->getDoctrine()
-                            ->getManager()
-                            ->getRepository('CRMAccountBundle:Account');
-
-        $accounts = $repository->findAll();
-        
-        return $this->render('CRMAccountBundle:Account:index.html.twig', array('accounts' => $accounts));
+        return $this->render('CRMAccountBundle:Account:index.html.twig');
     }
     
+    // Affichage du formulaire pour ajouter un nouveau client
     public function addAction(Request $request)
     {
         $account = new Account();
@@ -36,7 +33,7 @@ class AccountController extends Controller
 
             $request->getSession()->getFlashBag()->add('notice', 'Client bien enregistrée.');
 
-            return $this->redirect($this->generateUrl('crm_account_homepage'));
+            return $this->redirect($this->generateUrl('crm_account_home'));
         }
         else
         {
@@ -46,5 +43,33 @@ class AccountController extends Controller
         return $this->render('CRMAccountBundle:Account:add.html.twig', array(
                                 'form' => $form->createView(),
                             ));
+    }
+    
+    public function voirAction(Account $account)
+    {
+        
+    }
+    
+    public function newAccountsAction()
+    {
+        $accounts = $this->getDoctrine()
+                         ->getManager()
+                         ->getRepository('CRMAccountBundle:Account')
+                         ->findNewAccounts(30);
+        
+        return $this->render('CRMAccountBundle:Account:newAccounts.html.twig', array(
+                                'accounts' => $accounts,
+                            ));
+    }
+    
+    public function listAccountsJsonAction()
+    {        
+        $repository = $this->getDoctrine()
+                            ->getManager()
+                            ->getRepository('CRMAccountBundle:Account');
+
+        $accounts = $repository->getAllAccounts();
+
+        return new JsonResponse($accounts);
     }
 }
