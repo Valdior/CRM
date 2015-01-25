@@ -1,0 +1,7 @@
+crm_customer_account:
+    resource: "@CRMCustomerBundle/Resources/config/account.yml"
+    prefix:   /account
+
+crm_customer_contact:
+    resource: "@CRMCustomerBundle/Resources/config/contact.yml"
+    prefix:   /contact

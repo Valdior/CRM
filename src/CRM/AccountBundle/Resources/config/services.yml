@@ -1,4 +1,0 @@
-services:
-#    crm_account.example:
-#        class: CRM\AccountBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]

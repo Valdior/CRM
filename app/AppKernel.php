@@ -26,7 +26,7 @@ class AppKernel extends Kernel
             // Bundle propre
             new CRM\CoreBundle\CRMCoreBundle(),
             new CRM\UserBundle\CRMUserBundle(),
-            new CRM\AccountBundle\CRMAccountBundle(),     
+            new CRM\CustomerBundle\CRMCustomerBundle(),     
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

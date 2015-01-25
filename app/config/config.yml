@@ -113,3 +113,6 @@ jms_serializer:
             FOSUB:
                 namespace_prefix: "FOS\\UserBundle"
                 path: "%kernel.root_dir%/serializer/FOSUserBundle"
+            CRMCB: #CRMCustomer:AccountBundle
+                namespace_prefix: "CRM\\CustomerBundle"
+                path: "%kernel.root_dir%/serializer/CRMCustomerBundle"                

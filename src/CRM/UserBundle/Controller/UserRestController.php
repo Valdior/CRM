@@ -20,7 +20,7 @@ class UserRestController extends Controller
                      ->getManager()
                      ->getRepository('CRMUserBundle:User')
                      ->findOneByUsername($username);
-
+                     
         if(!is_object($user))
         {
           throw $this->createNotFoundException();

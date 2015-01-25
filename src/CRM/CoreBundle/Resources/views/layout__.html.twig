@@ -1,126 +1,84 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta name="author" content="Maréchal Pierre">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta http-equiv="Content-language" content="fr-BE" />
-        <title>{% block title %}- CRM{% endblock %}</title>
-        {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('dist/css/bootstrap.css') }}" type="text/css" />        
-        <link rel="stylesheet" href="{{ asset('dist/css/bootstrap-theme.css') }}" type="text/css" />
-        
-        <link rel="stylesheet" href="{{ asset('dist/css/bootstrap-theme-crm.css') }}" type="text/css" />
-        <link rel="stylesheet" href="{{ asset('dist/css/sb-admin.css') }}" type="text/css" />
-        {% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        <div class="wrapper">
-            <nav class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
-                <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">SB Admin</a>
-            </div>
-                
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="{{ path('crm_core_home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#demo">Sales<span class="caret"></span></a> 
-                        </li>   
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right top-nav">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> {{ app.user.username }} <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ path('fos_user_profile_show') }}">Profil</a></li>
-                                <li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>                                
-                            </ul>
-                        </li>    
-                    </ul>
-                            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
-                    </li>
-                    <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
-                    </li>
-                    <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-                    </li>
-                    <li>
-                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-                    </li>
-                </ul>
-            </div>
-            </nav>
-        
-            <nav class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation" id="submenu">
-                <div class="container-fluid">
-                    <ul class="nav navbar-nav collapse" id="demo">
-                      <li><a href="{{ path('crm_account_homepage') }}" id="">Clients</a></li>
-                      <li><a href="#" id="">One sub 2</a></li>
-                      <li><a href="#" id="">One sub 3</a></li>
-                      <li><a href="#" id="">One sub 4</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav collapse" id="two">
-                      <li><a href="#" id="">Two sub 1</a></li>
-                      <li><a href="#" id="">Two sub 2</a></li>
-                      <li><a href="#" id="">Two sub 3</a></li>
-                    </ul>
-                     <ul class="nav navbar-nav collapse" id="three">
-                      <li><a href="#" id="">Three sub 1</a></li>
-                      <li><a href="#" id="">Three sub 2</a></li>
-                    </ul>
-                </div>
-            </nav>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
 
-            <div class="container-fluid">
-                <div class="row-fluid">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        {% block body %}{% endblock %}                    
-                    </div>
-                </div>
-            </div>
-                
+    <title>Off Canvas Reveal Menu Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('dist/css/jasny-bootstrap.css') }}" rel="stylesheet">
+    
+
+    
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style type="text/css"></style></head>
+
+  <body style="">
+    <div class="navmenu navmenu-default navmenu-fixed-left">
+      <a class="navmenu-brand" href="#">Project name</a>
+      <ul class="nav navmenu-nav">
+        <li><a href="../navmenu/">Slide in</a></li>
+        <li><a href="../navmenu-push/">Push</a></li>
+        <li class="active"><a href="./">Reveal</a></li>
+        <li><a href="../navbar-offcanvas/">Off canvas navbar</a></li>
+      </ul>
+      <ul class="nav navmenu-nav">
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <ul class="dropdown-menu navmenu-nav">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Nav header</li>
+            <li><a href="#">Separated link</a></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="canvas" style="">
+      <div class="navbar navbar-default navbar-fixed-top" style="">
+        <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <div class="container">
+        <div class="page-header">
+          <h1>Off Canvas Reveal Menu Template</h1>
         </div>
-                
-        {% block javascripts %}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="{{ asset('dist/js/bootstrap.js') }}"></script>
-        <script src="{{ asset('dist/js/bootstrap-crm.js') }}"></script>
-        <script src="{{ asset('dist/js/npm.js') }}"></script>   
-        <script src="{{ asset('dist/js/plugins/morris/raphael.min.js') }}"></script>
-        <script src="{{ asset('dist/js/plugins/morris/morris.min.js') }}"></script>
-        <script src="{{ asset('dist/js/plugins/morris/morris-data.js') }}"></script>
-        {% endblock %}
-    </body>
-</html>
+        <p class="lead">This example demonstrates the use of the offcanvas plugin with a reveal effect.</p>
+        <p>On the contrary of the push effect, the menu doesn't move with the canvas.</p>
+        <p>You get the reveal effect by wrapping the content in a div and setting the <code>canvas</code> option to target that div.</p>
+        <p>Note that in this example, the navmenu doesn't have the <code>offcanvas</code> class, but is placed under the canvas by setting the <code>z-index</code>.</p>
+        <p>Also take a look at the examples for a navmenu with <a href="../navmenu">slide in effect</a> and <a href="../navmenu-push">push effect</a>.</p>
+      </div><!-- /.container -->
+    </div>
+    
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="{{ asset('dist/js/jasny-bootstrap.min.js') }}"></script>   
+  
+
+<style>.tb_button {padding:1px;cursor:pointer;border-right: 1px solid #8b8b8b;border-left: 1px solid #FFF;border-bottom: 1px solid #fff;}.tb_button.hover {borer:2px outset #def; background-color: #f8f8f8 !important;}.ws_toolbar {z-index:100000} .ws_toolbar .ws_tb_btn {cursor:pointer;border:1px solid #555;padding:3px}   .tb_highlight{background-color:yellow} .tb_hide {visibility:hidden} .ws_toolbar img {padding:2px;margin:0px}</style></body></html>

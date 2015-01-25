@@ -1,0 +1,15 @@
+crm_account_home:
+    path:     /
+    defaults: { _controller: CRMCustomerBundle:Account:index }
+    
+crm_account_add:
+    path:     /add
+    defaults: { _controller: CRMCustomerBundle:Account:add }
+
+crm_account_list_json:
+    path:     /listAccounts
+    defaults: { _controller: CRMCustomerBundle:Account:listAccountsJson }     
+    
+crm_account_view:
+    path:     /{slug}
+    defaults: { _controller: CRMCustomerBundle:Account:view }  

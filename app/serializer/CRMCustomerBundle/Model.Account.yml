@@ -1,0 +1,5 @@
+CRM\CustomerBundle\Model\Account:
+    exclusion_policy: ALL
+    properties : 
+      username : 
+        expose : true

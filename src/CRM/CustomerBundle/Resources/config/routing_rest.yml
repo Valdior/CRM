@@ -1,0 +1,4 @@
+accounts : 
+  type: rest
+  resource:     "CRMCustomerBundle:AccountRest"
+  name_prefix:  api_
