@@ -10,8 +10,6 @@ class AccountRestController extends Controller
 {
     /**
      * 
-     * @param type $username
-     * 
      * @View(serializerGroups={"Default","Details"})
      */
     public function getAccountsAction()

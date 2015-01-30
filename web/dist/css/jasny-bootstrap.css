@@ -346,7 +346,7 @@
 .navmenu-inverse .navmenu-nav > .open > a:focus,
 .navbar-inverse .navbar-offcanvas .navmenu-nav > .open > a:focus {
   color: #fff;
-  background-color: #080808;
+  background-color: #0AA699;
 }
 .navmenu-inverse .navmenu-nav > .open > a .caret,
 .navbar-inverse .navbar-offcanvas .navmenu-nav > .open > a .caret,
@@ -387,7 +387,7 @@
 .navmenu-inverse .navmenu-nav > li > a:focus,
 .navbar-inverse .navbar-offcanvas .navmenu-nav > li > a:focus {
   color: #fff;
-  background-color: transparent;
+  background-color: #0AA699;
 }
 .navmenu-inverse .navmenu-nav > .active > a,
 .navbar-inverse .navbar-offcanvas .navmenu-nav > .active > a,
@@ -396,7 +396,7 @@
 .navmenu-inverse .navmenu-nav > .active > a:focus,
 .navbar-inverse .navbar-offcanvas .navmenu-nav > .active > a:focus {
   color: #fff;
-  background-color: #080808;
+  background-color: #0AA699;
 }
 .navmenu-inverse .navmenu-nav > .disabled > a,
 .navbar-inverse .navbar-offcanvas .navmenu-nav > .disabled > a,
